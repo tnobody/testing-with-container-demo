@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+}
+
+.game-board {
+    display: grid;
+    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.game-board-wrapper {
+    position: relative;
+}
+
+.game-board-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-board-overlay__backdrop {
+    background: rgba(0,0,0, 0.5);
+}
+
+.npc-is-turning {
+    width: 100%;
+    padding: 2rem;
+    font-size: 2rem;
+    text-align: center;
+    color: silver;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.restart-button {
+    background: white;
+    border: 2px solid darkgreen;
+    font-size: 1.5rem;
+    width: 50%;
+    border-radius: .5rem;
+    align-self: center;
+    margin-top: 1rem;
+}
+
+.box {
+    background: #444;
+    border: 1px solid #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #AAA;
+    cursor: pointer;
+    font-size: 3rem;
+}
+
+.box:focus {
+    outline: none;
+}

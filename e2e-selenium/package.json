@@ -1,0 +1,23 @@
+{
+  "name": "e2e-selenium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "jest-environment-selenium",
+    "setupFilesAfterEnv": ["jest-environment-selenium/dist/setup.js"]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chromedriver": "^78.0.1",
+    "geckodriver": "^1.19.1",
+    "jest": "^24.9.0",
+    "jest-environment-selenium": "^2.1.2",
+    "selenium-webdriver": "^4.0.0-alpha.5"
+  }
+}

@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  gui:
+    build: ./gui
+    ports:
+      - 3010:80
+    depends_on:
+      - game
+  validator:
+    build: ./validator
+    ports:
+      - 3011:8080
+  game:
+    build: ./game
+    ports:
+      - 3012:4567
+    environment:
+      - VALIDATOR_BACKEND=http://validator:8080
+    depends_on:
+      - validator
+  web:
+    image: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./reverse-proxy:/etc/nginx
+    depends_on:
+      - gui

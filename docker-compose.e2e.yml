@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+  wd_chrome:
+    image: selenium/standalone-chrome-debug
+    ports:
+      - 4444:4444
+    shm_size: "2g"
+  wd_firefox:
+    image: selenium/standalone-firefox-debug
+    ports:
+      - 4445:4444
+    shm_size: "2g"
+  e2e_chrome:
+    build: ./e2e-selenium
+    environment:
+      - SELENIUM_BROWSER=chrome
+      - SELENIUM_REMOTE_URL=http://wd_chrome:4444/wd/hub
+      - E2E_APP_URL=http://web
+    depends_on:
+      - wd_chrome
+      - web
+  e2e_firefox:
+    build: ./e2e-selenium
+    environment:
+      - SELENIUM_BROWSER=firefox
+      - SELENIUM_REMOTE_URL=http://wd_firefox:4444/wd/hub
+      - E2E_APP_URL=http://web
+    depends_on:
+      - wd_firefox
+      - web
